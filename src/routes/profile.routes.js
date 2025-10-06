@@ -12,8 +12,8 @@ router.get("/public", getPublicProfile);
 
 router.get("/private", authMiddleware, getPrivateProfile);
 
-router.patch("/profile/private", authMiddleware, updateProfileController);
+router.patch("/update", authMiddleware, updateProfileController);
 
-router.delete("/profile/private", authMiddleware, deleteProfileController);
+router.delete("/delete", authMiddleware, deleteProfileController);
 
 export default router;
