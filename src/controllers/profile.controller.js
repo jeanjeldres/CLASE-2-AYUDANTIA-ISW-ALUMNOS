@@ -1,7 +1,6 @@
 import { handleSuccess } from "../Handlers/responseHandlers.js";
 import * as userService from '../services/user.service.js';
-import { handleError } from '../Handlers/responseHandlers.js';
-import bcrypt from 'bcryptjs';
+import { handleErrorClient } from '../Handlers/responseHandlers.js';
 
 export function getPublicProfile(req, res) {
   handleSuccess(res, 200, "Perfil público obtenido exitosamente", {
