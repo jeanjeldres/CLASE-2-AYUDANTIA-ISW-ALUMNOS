@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { updateProfileController, deleteProfileController } from "../controllers/user.controller.js";
-import { authenticateToken } from "../middlewares/validateJWT.js";
+import { authMiddleware } from '../middleware/auth.middleware.js';
 
 const router = Router();
 
-router.patch("/profile/private", authenticateToken, updateProfileController);
+router.patch("/profile/private", authMiddleware, updateProfileController);
 
-router.delete("/profile/private", authenticateToken, deleteProfileController);
+router.delete("/profile/private", authMiddleware, deleteProfileController);
 
 export default router;
