@@ -24,7 +24,6 @@ export async function register(req, res) {
     if (!data.email || !data.password) {
       return handleErrorClient(res, 400, "Email y contraseña son requeridos");
     }
-    
     const newUser = await createUser(data);
     delete newUser.password; // Nunca devolver la contraseña
     handleSuccess(res, 201, "Usuario registrado exitosamente", newUser);
