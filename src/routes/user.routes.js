@@ -5,8 +5,8 @@ import { authMiddleware } from '../middleware/auth.middleware.js';
 
 const router = Router();
 
-router.patch("/profile/private", authMiddleware, updateProfileController);
+router.patch("/update", authMiddleware, updateProfileController);
 
-router.delete("/profile/private", authMiddleware, deleteProfileController);
+router.delete("/delete", authMiddleware, deleteProfileController);
 
 export default router;
