@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { updateProfileController, deleteProfileController } from "../controllers/user.controller.js";
+import { updateProfileController, deleteProfileController } from "../controllers/profile.controller.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
 import {
   getPublicProfile,
