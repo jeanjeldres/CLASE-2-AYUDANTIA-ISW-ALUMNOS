@@ -1,15 +1,21 @@
 import { loginUser } from "../services/auth.service.js";
 import { createUser } from "../services/user.service.js";
 import { handleSuccess, handleErrorClient, handleErrorServer } from "../Handlers/responseHandlers.js";
+import { authValidation } from "../validations/auth.validations.js";
 
 export async function login(req, res) {
   try {
     const { email, password } = req.body;
     
+    const { error } = authValidation.validate(body);
     if (!email || !password) {
       return handleErrorClient(res, 400, "Email y contraseña son requeridos");
     }
-    
+    /*
+    if (error) {
+      return handleErrorClient(res, 400, error.details[0].message);
+    }
+    */
     const data = await loginUser(email, password);
     handleSuccess(res, 200, "Login exitoso", data);
   } catch (error) {
