@@ -7,9 +7,9 @@ export async function login(req, res) {
   try {
     const { email, password } = req.body;
     
-    const { error } = authValidation.validate(body);
-    if (!email || !password) {
-      return handleErrorClient(res, 400, "Email y contraseña son requeridos");
+    const { error } = authValidation.validate(req.body);
+    if (error) {
+      return handleErrorClient(res, 400, error.details[0].message);
     }
     /*
     if (error) {
@@ -27,8 +27,9 @@ export async function register(req, res) {
   try {
     const data = req.body;
     
-    if (!data.email || !data.password) {
-      return handleErrorClient(res, 400, "Email y contraseña son requeridos");
+    const { error } = authValidation.validate(req.body);
+    if (error) {
+      return handleErrorClient(res, 400, error.details[0].message);
     }
     const newUser = await createUser(data);
     delete newUser.password; // Nunca devolver la contraseña
