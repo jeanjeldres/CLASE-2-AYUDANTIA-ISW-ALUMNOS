@@ -57,6 +57,7 @@ const Home = () => {
             <h2 className="text-xl font-bold mb-4">Datos del perfil:</h2>
             <p>
               <strong>Email:</strong> {profileData.userData.email}
+              {/* <p><strong>Contraseña encriptada:</strong> {profileData.userData.password}</p> */}
             </p>
           </div>
         )}
