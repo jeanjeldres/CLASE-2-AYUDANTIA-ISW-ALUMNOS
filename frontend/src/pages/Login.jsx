@@ -18,20 +18,6 @@ const Login = () => {
             });
 
             const data = await response.json();
-/*
- if (response.ok && data.success) {
-        alert("✅ Inicio de sesión exitoso");
-
-
-        navigate("/home");
-      } else {
-        alert(data.message || "❌ Credenciales inválidas");
-      }
-    } catch (error) {
-      console.error("Error al conectar con el servidor:", error);
-      alert("Error al conectar con el servidor");
-    } */
-
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);

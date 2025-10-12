@@ -7,6 +7,7 @@ import Root from '@pages/Root';
 import ProtectedRoute from '@components/ProtectedRoute';
 import '@styles/styles.css';
 
+
 const router = createBrowserRouter([
   {
     path: '/',

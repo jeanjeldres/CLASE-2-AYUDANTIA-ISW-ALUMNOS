@@ -8,7 +8,11 @@ import cors from "cors";
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:5173",  // tu frontend Vite
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"], // permitir token en headers
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 // Ruta principal de bienvenida
